@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polyrhythm Calculator</title>
+  <link rel="preload" href="fonts/digital-7.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/YahfieHeavy.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="icon" sizes="512x512" href="./images/favicon.svg">
+  <link rel="icon" sizes="192x192" href="./images/favicon.png">
+  <meta property="og:title" name="application-name" content="Polyrhythm Calculator">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./images/screenshot.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:image" content="./images/favicon.svg">
+  <meta property="og:image:type" content="image/xml+svg">
+  <meta property="og:image" content="./images/favicon512x512.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:url" content="https://stellartux.github.io/polyrhythm-calculator">
+  <meta name="description" property="og:description"
+    content="An app for calculating the repetitions and remainder of a polyrhythm.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#A15B32">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Polyrhythm Calculator">
+  <meta name="apple-mobile-web-app-status-bar" content="#A15B32">
+  <link rel="apple-touch-icon" sizes="512x512" href="images/favicon512x512.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="images/favicon192x192.png">
+  <meta name="rating" content="General">
+  <link rel="manifest" href="manifest.json">
+  <link rel="license" href="LICENSE">
+  <script src="polyrhythm-calculator.js" type="module"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      background-color: #A15B32;
+      overflow: hidden;
+      background-image: url(./images/background.webp);
+      background-size: cover;
+    }
+
+  </style>
+</head>
+
+<body>
+  <polyrhythm-calculator></polyrhythm-calculator>
+
+  <script>
+    window.addEventListener('load', async () => await navigator.serviceWorker.register('serviceworker.js', { scope: '.' }))
+  </script>
+</body>
+
+</html>

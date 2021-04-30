@@ -1,0 +1,39 @@
+{
+  "name": "Polyrhythm Calculator",
+  "short_name": "PolyCalc",
+  "description": "An app for calculating the repetitions and remainder of a polyrhythm.",
+  "display": "standalone",
+  "lang": "en",
+  "orientation": "portrait",
+  "start_url": ".",
+  "scope": ".",
+  "background_color": "#A15B32",
+  "theme_color": "#A15B32",
+  "icons": [
+    {
+      "src": "images/favicon.svg",
+      "sizes": "150x150 512x512",
+      "type": "image/svg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/favicon192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/favicon512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshot.webp",
+      "sizes": "1920x1080",
+      "type": "image/webp"
+    }
+  ]
+}

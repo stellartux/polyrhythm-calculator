@@ -1,0 +1,5 @@
+*.zip
+images/ref*
+sketch.*
+*_raw.*
+.vscode
