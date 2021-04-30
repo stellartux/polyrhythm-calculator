@@ -45,7 +45,7 @@ class PolyrhythmCalculator extends HTMLElement {
     <button id="go">GO</button>
   </div>
   <div id="subdivisions">
-    <button value="1">
+    <button value="1" aria-label="Quarter notes">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200">
         <g id="note1">
           <ellipse fill="black" rx="25" ry="22" transform="translate(0 50) rotate(-45)" />
@@ -53,7 +53,7 @@ class PolyrhythmCalculator extends HTMLElement {
         </g>
       </svg>
     </button>
-    <button value="2">
+    <button value="2" aria-label="Eighth notes">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200">
         <g id="note2">
           <use href="#note1" x="-35" />
@@ -62,7 +62,7 @@ class PolyrhythmCalculator extends HTMLElement {
         </g>
       </svg>
     </button>
-    <button value="3">
+    <button value="3" aria-label="Triplets">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200">
         <g id="note3">
           <g transform="translate(0 15) scale(0.8)">
@@ -75,7 +75,7 @@ class PolyrhythmCalculator extends HTMLElement {
         </g>
       </svg>
     </button>
-    <button value="4"> 
+    <button value="4" aria-label="Sixteenth notes"> 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200">
         <g id="note4" transform="translate(-2 2) scale(0.83)">
           <use href="#note1" x="-80" />
@@ -87,7 +87,7 @@ class PolyrhythmCalculator extends HTMLElement {
         </g>
       </svg>
     </button>
-    <button value="5">
+    <button value="5" aria-label="Quintuplets">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 -100 400 200">
         <g id="note5">
           <g transform="translate(6 20) scale(0.9)">
@@ -103,7 +103,7 @@ class PolyrhythmCalculator extends HTMLElement {
         </g>
       </svg>
     </button>
-    <button value="6">
+    <button value="6" aria-label="Sextuplets">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 -100 400 200">
         <g id="note6">
           <g transform="translate(0 20) scale(0.9)">
@@ -120,7 +120,7 @@ class PolyrhythmCalculator extends HTMLElement {
         </g>
       </svg>
     </button>
-    <button value="7">
+    <button value="7" aria-label="Septuplets">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 -100 400 200">
         <g id="note7">
           <g transform="translate(-22 20) scale(0.9)">
@@ -138,7 +138,7 @@ class PolyrhythmCalculator extends HTMLElement {
         </g>
       </svg>
     </button>
-    <button value="8">
+    <button value="8" aria-label="Thirty-second notes">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 -100 400 200">
         <g id="note8" transform="translate(-44 0) scale(0.94)">
           <use href="#note1" x="-130" />
@@ -164,6 +164,8 @@ class PolyrhythmCalculator extends HTMLElement {
   padding: 0;
   background-blend-mode: color-burn;
   background-size: cover;
+  max-width: 100vw;
+  max-height: 100vh;
 }
 
 :host {
@@ -183,7 +185,6 @@ class PolyrhythmCalculator extends HTMLElement {
   box-shadow: 2vh 2vh 4vh #000000dd;
   background: var(--paper-svg) var(--main-light);
   background-blend-mode: color-burn;
-
 }
 
 :host > header {
@@ -196,7 +197,6 @@ class PolyrhythmCalculator extends HTMLElement {
   border-top-right-radius: 5vh;
   width: 100%;
   height: 100%;
-  max-width: 72vh;
   text-align: center;
   font-size: 5vh;
   font-family: var(--handwritten-font);
@@ -210,9 +210,10 @@ class PolyrhythmCalculator extends HTMLElement {
   border-top-right-radius: 1em;
   border-bottom-style: double;
   border-bottom-width: 1ch;
-  margin: auto 1em;
+  margin: auto 1vw;
   padding: 0 1em;
   height: 100%;
+  max-width: 96vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   box-shadow: inset 0.5vh 0.5vh 1vh #00000088;
@@ -266,6 +267,8 @@ class PolyrhythmCalculator extends HTMLElement {
   gap: 0.5em;
   flex: 0 2 33vh;
   margin-right: 0;
+  height: 100%;
+  gap: 1vw;
 }
 
 #numbers > button {
@@ -325,7 +328,7 @@ span.highlight {
 }
 
 button {
-  border-width: medium;
+  border-width: 0.7vmin;
   font-family: var(--handwritten-font);
   cursor: pointer;
   min-width: min-content;
@@ -339,7 +342,7 @@ button#go {
   font-size: 5vh;
   font-weight: bold;
   padding-top: 0.2em;
-  border-width: thick;
+  border-width: 1.4vmin;
   grid-area: 4;
 }
 
@@ -360,6 +363,68 @@ svg {
 output > svg {
   min-width: 4ch;
   max-height: 1em;
+}
+
+@media (max-width: 384px), (max-height: 400px) { 
+  :host {
+    grid-template-rows: 2vh 3fr 3fr 7fr;
+  }
+  #screen {
+    margin: 0 2vw;
+  }
+  :host > header {
+    background: none;
+    font-size: 2vh;
+    margin: 0.1vh 1vh;
+    border: none;
+    color: var(--contrast);
+  }
+}
+
+@media (max-width: 310px), 
+(min-height: 180vw),
+(max-height: 280px) {
+  #subdivisions {
+    display: none;
+  }
+  
+  #other-buttons {
+    display: block;
+  }
+
+  #screen span + span, span.highlight {
+    display: none;
+  }
+
+  #other-buttons, #numbers {
+    max-width: 100vw;
+    margin: 1vmin;
+    gap: 0;
+  }
+
+  #full-reps::before {
+    content: 'reps:';
+  }
+
+  #remainder::before {
+    content: 'rem:';
+  }
+
+  #screen label span:first-child , 
+  *::before {
+    font-size: 6vmin;
+  }
+
+  #mode-buttons button {
+    min-width: unset;
+    width: 100%;
+  }
+
+  #numbers button {
+    width: 90%;
+    height: 90%;
+    border-radius: 45%;
+  }
 }
 </style>
 `
