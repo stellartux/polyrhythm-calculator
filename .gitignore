@@ -3,3 +3,5 @@ images/ref*
 sketch.*
 *_raw.*
 .vscode
+.DS_Store
+desktop.ini

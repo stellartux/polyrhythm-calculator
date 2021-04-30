@@ -16,7 +16,11 @@ class PolyrhythmCalculator extends HTMLElement {
   <label aria-label="time signature"><span>TS</span><span>—</span><output id="time-signature">4/4</output></label>
   <label aria-label="phrase"><span>P</span><span>—</span><output id="phrase">16</output></label>
   <label aria-label="full repetitions"><span class="highlight">full reps</span><output id="full-reps">0</output></label>
-  <label aria-label="subdivision"><span>S</span><span>—</span><output id="subdivision">2</output></label>
+  <label aria-label="subdivision"><span>S</span><span>—</span><output id="subdivision">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200">
+      <use href="#note2" />
+    </svg>
+  </output></label>
   <label aria-label="bar count"><span>BC</span><span>—</span><output id="bar-count">4</output></label>
   <label><span class="highlight">remainder</span><output id="remainder">0</output></label>
 </div>
@@ -41,14 +45,116 @@ class PolyrhythmCalculator extends HTMLElement {
     <button id="go">GO</button>
   </div>
   <div id="subdivisions">
-    <button value="1">𝅘𝅥</button>
-    <button value="2">𝅘𝅥𝅮𝅘𝅥𝅮</button>
-    <button value="3">3<br>𝅘𝅥𝅮𝅘𝅥𝅮𝅘𝅥𝅮</button>
-    <button value="4">𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯</button>
-    <button value="5">5<br>𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯</button>
-    <button value="6">6<br>𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯</button>
-    <button value="7">7<br>𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯𝅘𝅥𝅯</button>
-    <button value="8">𝅘𝅥𝅰𝅘𝅥𝅰𝅘𝅥𝅰𝅘𝅥𝅰𝅘𝅥𝅰𝅘𝅥𝅰𝅘𝅥𝅰𝅘𝅥𝅰</button>
+    <button value="1">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200">
+        <g id="note1">
+          <ellipse fill="black" rx="25" ry="22" transform="translate(0 50) rotate(-45)" />
+          <rect width="10" height="120" x="13.7" y="-70" rx="4" />
+        </g>
+      </svg>
+    </button>
+    <button value="2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200">
+        <g id="note2">
+          <use href="#note1" x="-35" />
+          <use href="#note1" x="25" />
+          <rect width="66" height="30" x="-18" y="-70" rx="4" />
+        </g>
+      </svg>
+    </button>
+    <button value="3">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200">
+        <g id="note3">
+          <g transform="translate(0 15) scale(0.8)">
+            <use href="#note1" x="-60" />
+            <use href="#note1" x="-10" />
+            <use href="#note1" x="40" />
+            <rect width="106" height="30" x="-43" y="-70" rx="4" />
+          </g>
+          <text x="-6" y="-46" font-size="72">3</text>
+        </g>
+      </svg>
+    </button>
+    <button value="4"> 
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200">
+        <g id="note4" transform="translate(-2 2) scale(0.83)">
+          <use href="#note1" x="-80" />
+          <use href="#note1" x="-30" />
+          <use href="#note1" x="25" />
+          <use href="#note1" x="77" />
+          <rect width="160" height="20" x="-63" y="-70" rx="4" />
+          <rect width="160" height="20" x="-63" y="-40" rx="4" />
+        </g>
+      </svg>
+    </button>
+    <button value="5">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 -100 400 200">
+        <g id="note5">
+          <g transform="translate(6 20) scale(0.9)">
+            <use href="#note1" x="-110" />
+            <use href="#note1" x="-60" />
+            <use href="#note1" x="-10" />
+            <use href="#note1" x="40" />
+            <use href="#note1" x="90" />
+            <rect width="203" height="20" x="-93" y="-70" rx="4" />
+            <rect width="203" height="20" x="-93" y="-40" rx="4" />
+          </g>
+          <text x="-6" y="-46" font-size="72">5</text>
+        </g>
+      </svg>
+    </button>
+    <button value="6">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 -100 400 200">
+        <g id="note6">
+          <g transform="translate(0 20) scale(0.9)">
+            <use href="#note1" x="-130" />
+            <use href="#note1" x="-80" />
+            <use href="#note1" x="-30" />
+            <use href="#note1" x="20" />
+            <use href="#note1" x="70" />
+            <use href="#note1" x="120" />
+            <rect width="253" height="20" x="-113" y="-70" rx="4" />
+            <rect width="253" height="20" x="-113" y="-40" rx="4" />
+          </g>
+          <text x="-6" y="-46" font-size="72">6</text>
+        </g>
+      </svg>
+    </button>
+    <button value="7">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 -100 400 200">
+        <g id="note7">
+          <g transform="translate(-22 20) scale(0.9)">
+            <use href="#note1" x="-130" />
+            <use href="#note1" x="-80" />
+            <use href="#note1" x="-30" />
+            <use href="#note1" x="20" />
+            <use href="#note1" x="70" />
+            <use href="#note1" x="120" />
+            <use href="#note1" x="170" />
+            <rect width="303" height="20" x="-113" y="-70" rx="4" />
+            <rect width="303" height="20" x="-113" y="-40" rx="4" />
+          </g>
+          <text x="-6" y="-46" font-size="72">7</text>
+        </g>
+      </svg>
+    </button>
+    <button value="8">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 -100 400 200">
+        <g id="note8" transform="translate(-44 0) scale(0.94)">
+          <use href="#note1" x="-130" />
+          <use href="#note1" x="-80" />
+          <use href="#note1" x="-30" />
+          <use href="#note1" x="20" />
+          <use href="#note1" x="70" />
+          <use href="#note1" x="120" />
+          <use href="#note1" x="170" />
+          <use href="#note1" x="220" />
+          <rect width="353" height="15" x="-113" y="-70" rx="4" />
+          <rect width="353" height="15" x="-113" y="-46" rx="4" />
+          <rect width="353" height="15" x="-113" y="-19" rx="4" />
+        </g>
+      </svg>
+    </button>
   </div>
 </div>
 <style>
@@ -240,6 +346,21 @@ button#go {
 button:active {
   box-shadow: inset 0 0 2ch #606060cc;
 }
+
+svg {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#subdivision {
+  display: flex;
+  place-items: center;
+}
+
+output > svg {
+  min-width: 4ch;
+  max-height: 1em;
+}
 </style>
 `
     for (const modeButton of this.shadowRoot.querySelectorAll(
@@ -276,7 +397,7 @@ button:active {
     )) {
       subdivisionButton.addEventListener('click', (event) => {
         this._buffer = ''
-        this.subdivision = event.target.value
+        this.subdivision = subdivisionButton.value
       })
     }
 
@@ -345,7 +466,9 @@ button:active {
     const subdivision = Math.floor(value)
     if (subdivision >= 1 && subdivision <= 8) {
       this._subdivision = subdivision
-      this.shadowRoot.querySelector('#subdivision').innerText = subdivision
+      this.shadowRoot
+        .querySelector('#subdivision svg use')
+        .setAttribute('href', `#note${value}`)
     }
   }
 
