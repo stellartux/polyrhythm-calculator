@@ -41,7 +41,7 @@ class PolyrhythmCalculator extends HTMLElement {
     <button value="1">1</button>
     <button value="2">2</button>
     <button value="3">3</button>
-    <button value="0">0</button>   
+    <button value="0">0</button>
     <button id="go">GO</button>
   </div>
   <div id="subdivisions">
@@ -164,8 +164,8 @@ class PolyrhythmCalculator extends HTMLElement {
   padding: 0;
   background-blend-mode: color-burn;
   background-size: cover;
-  max-width: 100vw;
-  max-height: 100vh;
+  max-width: 99vw;
+  max-height: 99vh;
 }
 
 :host {
@@ -242,7 +242,7 @@ class PolyrhythmCalculator extends HTMLElement {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 0.4em;
-  margin: 0 1em;
+  margin: 0 auto;
 }
 
 #mode-buttons > button {
@@ -535,6 +535,7 @@ output > svg {
         .querySelector('#subdivision svg use')
         .setAttribute('href', `#note${value}`)
     }
+    this._buffer = ''
   }
 
   get timeSignature() {
