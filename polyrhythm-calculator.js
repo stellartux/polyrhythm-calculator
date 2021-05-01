@@ -3,7 +3,7 @@ class PolyrhythmCalculator extends HTMLElement {
   _subdivision = 2
   _phrase = 16
   _barCount = 16
-  _mode = 'subdivision'
+  _mode = 'time-signature'
   _buffer = ''
 
   constructor() {
@@ -201,6 +201,7 @@ class PolyrhythmCalculator extends HTMLElement {
   font-size: 5vh;
   font-family: var(--handwritten-font);
   font-variant: small-caps;
+  max-width: 100%;
 }
 
 #screen {
@@ -584,7 +585,10 @@ output > svg {
   }
 
   get beatCount() {
-    return this.timeSignature.upper * this.subdivision * this.barCount
+    return (
+      (this.timeSignature.upper * this.subdivision * this.barCount * 4) /
+      this.timeSignature.lower
+    )
   }
 
   get fullReps() {
