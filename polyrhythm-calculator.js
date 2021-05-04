@@ -585,7 +585,10 @@ output > svg {
   }
 
   get beatCount() {
-    return this.timeSignature.upper * this.subdivision * this.barCount
+    return (
+      (this.timeSignature.upper * this.subdivision * this.barCount * 4) /
+      this.timeSignature.lower
+    )
   }
 
   get fullReps() {
