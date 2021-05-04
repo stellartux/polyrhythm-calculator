@@ -2,7 +2,7 @@ class PolyrhythmCalculator extends HTMLElement {
   _timeSignature = { upper: 4, lower: 4 }
   _subdivision = 2
   _phrase = 16
-  _barCount = 16
+  _barCount = 4
   _mode = 'time-signature'
   _buffer = ''
 
