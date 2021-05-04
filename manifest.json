@@ -4,7 +4,7 @@
   "description": "An app for calculating the repetitions and remainder of a polyrhythm.",
   "display": "standalone",
   "lang": "en",
-  "orientation": "portrait",
+  "orientation": "any",
   "start_url": ".",
   "scope": ".",
   "background_color": "#A15B32",
