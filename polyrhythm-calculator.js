@@ -250,7 +250,8 @@ class PolyrhythmCalculator extends HTMLElement {
   background: var(--paper-svg) var(--highlighter);
   border-radius: 3em;
   padding: 0.2em 0.5em;
-  min-width: 16ch;
+  min-width: min-content;
+  width: 16ch;
   max-width: 45vw;
   font-variant: small-caps;
   font-size: 3.5vh;
