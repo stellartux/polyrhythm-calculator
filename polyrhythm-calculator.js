@@ -450,19 +450,23 @@ output > svg {
         : kebab
     }
 
+    const pressNumber = (n) => {
+      this._buffer += n
+      this[kebabCaseToCamelCase(this.mode)] = this._buffer
+    }
+
     for (const numberButton of this.shadowRoot.querySelectorAll(
       '#numbers > button:not(#go)'
     )) {
-      numberButton.addEventListener('click', (event) => {
-        this._buffer += event.target.value
-        this[kebabCaseToCamelCase(this.mode)] = this._buffer
-      })
+      numberButton.addEventListener('click', ({ target: { value } }) =>
+        pressNumber(value)
+      )
     }
 
     for (const subdivisionButton of this.shadowRoot.querySelectorAll(
       '#subdivisions>button'
     )) {
-      subdivisionButton.addEventListener('click', (event) => {
+      subdivisionButton.addEventListener('click', () => {
         this._buffer = ''
         this.subdivision = subdivisionButton.value
       })
@@ -477,6 +481,14 @@ output > svg {
           this.go()
         }
       })
+
+    this.addEventListener('keyup', (event) => {
+      if ('0123456789'.includes(event.key)) {
+        pressNumber(event.key)
+      } else if (event.key === 'Enter' || event.key === 'Space') {
+        this.go()
+      }
+    })
   }
 
   get [Symbol.toStringTag]() {

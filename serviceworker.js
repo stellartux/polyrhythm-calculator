@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v1.2.1'
+const CACHE_VERSION = 'v1.2.2'
 const CURRENT_CACHES = {
   'polyrhythm-calculator': 'polyrhythm-calculator-' + CACHE_VERSION,
 }
